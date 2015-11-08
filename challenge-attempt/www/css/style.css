@@ -1,0 +1,22 @@
+.center { text-align: center; }
+.image { max-width: 150px !important; max-height: 150px !important; }
+.displayNone { display: none; }
+.displayBlock { display: block; }
+.tinder-container {
+	position: relative;
+	margin: 20px auto;
+	width: 340px;
+	perspective: 1000px;
+	perspective-origin: 50% 150%;
+}
+.tinder-card {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.tinder-sub-card {
+	box-shadow: 0 10px 7px -7px rgba(0, 0, 0, 0.12), 0 0 4px rgba(0, 0, 0, 0.1);
+	transform-style: preserve-3d;
+}
+#bgColor { background: linear-gradient(to bottom, #ffa84c 0%,#ff7b0d 100%); }
+

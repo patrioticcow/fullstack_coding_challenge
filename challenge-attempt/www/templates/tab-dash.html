@@ -1,0 +1,116 @@
+<ion-view view-title="Find your match!">
+	<ion-content class="padding content-area" id="bgColor" scroll="false">
+		<div class="tinder-container" ng-style="{width : cardWidth}">
+			<div class="tinder-card"
+			     ng-style="{ 'width' : cardWidth}"
+			     hm-panmove="onSwipe"
+			     hm-panstart="onSwipeStart"
+			     hm-panend="onSwipeEnd"
+			     hm-panleft="onSwipeLeft"
+			     hm-panright="onSwipeRight"
+			     ng-repeat="(key,card) in cards"
+			     data-key="{{card.id}}"
+			     card-directive
+			>
+				<div class="list tinder-sub-card">
+					<div class="item item-image">
+						<img ng-src="{{card.image}}" ng-style="{width : 'auto', height: cardHeight}">
+					</div>
+
+					<div class="item tabs tabs-secondary tabs-icon-left">
+						<a class="tab-item" href="#"><i class="icon ion-ios-person"></i>{{card.name}}, {{card.age}}</a>
+						<a class="tab-item" href="#"><i class="icon ion-ios-heart"></i>{{card.match}}% match</a>
+						<a class="tab-item" href="#" ng-click="sendGift()"><i class="icon ion-ios-flame"></i>Send Gift</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
+
+<script id="itsAMatch.html" type="text/ng-template">
+	<ion-modal-view>
+		<ion-header-bar>
+			<div class="h1 title">It's a Match!</div>
+			<button class="button button-icon icon ion-ios-close-outline" ng-click="closeModal()"></button>
+		</ion-header-bar>
+		<ion-content>
+			<h4 class="center">You and Jake have liked each other.</h4>
+
+			<div class="row">
+				<div class="col">
+					<div class="list">
+						<a class="item item-avatar" style="padding: 0; min-height: 186px;" ng-click="closeModal()">
+							<img src="http://assets.worldwildlife.org/photos/35/images/circle/Macaw_circle_image_(c)_Zig_Kock_WWF.jpg?1345562675" class="image">
+						</a>
+					</div>
+				</div>
+
+				<div class="col">
+					<div class="list">
+						<a class="item item-avatar" style="padding: 0; min-height: 186px;" ng-click="closeModal()">
+							<img src="http://internet.com/wp-content/uploads/2015/03/tiger-150x150.jpg" class="image">
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="item item-text-wrap">
+					<h1 class="center">87% match</h1>
+				</div>
+			</div>
+
+			<div style="padding: 0 20px;">
+				<button class="button button-full button-dark icon-left ion-ios-chatbubble-outline" ng-click="closeModal()">
+					Send Message
+				</button>
+			</div>
+
+			<div style="padding: 0 20px 20px 20px;">
+				<button class="button button-full button-dark icon-left ion-ios-person-outline" ng-click="closeModal()">
+					Keep Playing
+				</button>
+			</div>
+
+			<div class="item tabs tabs-secondary tabs-icon-left">
+				<a class="tab-item" href="#">
+					<i class="icon ion-thumbsup"></i>
+					Like
+				</a>
+				<a class="tab-item" href="#">
+					<i class="icon ion-chatbox"></i>
+					Comment
+				</a>
+				<a class="tab-item" href="#">
+					<i class="icon ion-share"></i>
+					Share
+				</a>
+			</div>
+		</ion-content>
+	</ion-modal-view>
+</script>
+
+<script id="gift.html" type="text/ng-template">
+	<ion-modal-view>
+		<ion-header-bar>
+			<div class="h1 title">Send Gift to {{currentUser.name}}</div>
+			<button class="button button-icon icon ion-ios-close-outline" ng-click="closeModal()"></button>
+		</ion-header-bar>
+		<ion-content>
+			<div class="row" ng-repeat="key in [1,2,3]">
+				<div class="col" ng-repeat="key in [1,2]">
+					<div class="list card">
+						<div class="item item-image">
+							<img src="http://cdn.shopify.com/s/files/1/0001/5211/products/gift-certificate-3_1024x1024.jpg">
+						</div>
+						<a class="item item-icon-left" href="#">
+							<i class="icon ion-ios-checkmark-outline"></i>
+							Select gift
+						</a>
+					</div>
+				</div>
+			</div>
+		</ion-content>
+	</ion-modal-view>
+</script>
